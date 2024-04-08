@@ -7,7 +7,8 @@
     "prettier": "^3.2.5",
     "style-loader": "^3.3.4",
     "webpack": "^5.90.3",
-    "webpack-cli": "^5.1.4"
+    "webpack-cli": "^5.1.4",
+    "type": "module"
   },
   "dependencies": {
     "css-loader": "^6.10.0"
