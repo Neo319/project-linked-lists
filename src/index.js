@@ -47,7 +47,24 @@ class LinkedList {
             }
             return counter;
         }
-        
+    }
+
+    getHead() { //return the first list item
+        return this.head;
+    }
+
+    tail() { //return the last list item
+        if (this.isEmpty()) {
+            return null
+        } else {
+            let current = this.head;
+
+            while (current.next !== null) {
+                current = current.next;
+                console.log("s: " + current)
+            }
+            return current; //the final node is the result of traversing this list
+        }
     }
 }
 
@@ -67,3 +84,5 @@ console.log(myList.isEmpty()); // Output: false
 console.log(myList);
 
 console.log(myList.size())
+console.log(myList.getHead())
+console.log(myList.tail())
