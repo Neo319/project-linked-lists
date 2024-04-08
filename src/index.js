@@ -83,6 +83,23 @@ class LinkedList {
         const secondToLast = this.at(this.size() - 2)
         secondToLast.next = null;
     }
+
+    contains(value) { // returns true if 'value' is in the list, false otherwise
+        if (this.isEmpty()) {
+            return null
+        }
+        else {
+            let current = this.head
+
+            while (current !== null) {
+                if (current.data === value) return true
+                else {
+                    current = current.next;
+                }  
+            }
+            return false
+        }
+    }
 }
 
 class Node {
@@ -101,9 +118,6 @@ myList.append(40);
 // console.log(myList.isEmpty()); // Output: false
 // console.log(myList);
 
-console.log(myList.size()) //4
-console.log(myList.getHead()) //10
-console.log(myList.tail()) //40
-myList.pop()
-console.log(myList.tail()) //30
-console.log(myList.size()) //3
+
+console.log(myList.contains(5)) //false
+console.log(myList.contains(10)) //true
