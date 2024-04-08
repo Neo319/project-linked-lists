@@ -78,6 +78,11 @@ class LinkedList {
             return current; 
         }
     }
+
+    pop() {//removes the last element from the list
+        const secondToLast = this.at(this.size() - 2)
+        secondToLast.next = null;
+    }
 }
 
 class Node {
@@ -92,11 +97,13 @@ const myList = new LinkedList();
 myList.prepend(10);
 myList.append(20);
 myList.append(30);
+myList.append(40);
 // console.log(myList.isEmpty()); // Output: false
 // console.log(myList);
 
-// console.log(myList.size())
-// console.log(myList.getHead())
-// console.log(myList.tail())
-console.log(myList.at(0)) //10
-console.log(myList.at(2)) //30
+console.log(myList.size()) //4
+console.log(myList.getHead()) //10
+console.log(myList.tail()) //40
+myList.pop()
+console.log(myList.tail()) //30
+console.log(myList.size()) //3
