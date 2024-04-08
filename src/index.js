@@ -2,5 +2,5 @@ import dropdown from "./dropdown"
 
 import "./style.css"
 
-console.log("index.js ready!")
+console.log("Hello!")
 dropdown()
