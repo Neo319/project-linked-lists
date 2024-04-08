@@ -61,9 +61,21 @@ class LinkedList {
 
             while (current.next !== null) {
                 current = current.next;
-                console.log("s: " + current)
             }
             return current; //the final node is the result of traversing this list
+        }
+    }
+
+    at(index) { //returns the element at a given index
+        if (index > myList.size()) {
+            console.log(this.size() + " < " + index)
+            return null
+        } else {
+            let current = this.head;
+            for (let i = 0; i < index; i++) {
+                current = current.next;
+            }
+            return current; 
         }
     }
 }
@@ -76,13 +88,15 @@ class Node {
 }
 
 const myList = new LinkedList();
-console.log(myList.isEmpty()); // Output: true
+// console.log(myList.isEmpty()); // Output: true
 myList.prepend(10);
 myList.append(20);
 myList.append(30);
-console.log(myList.isEmpty()); // Output: false
-console.log(myList);
+// console.log(myList.isEmpty()); // Output: false
+// console.log(myList);
 
-console.log(myList.size())
-console.log(myList.getHead())
-console.log(myList.tail())
+// console.log(myList.size())
+// console.log(myList.getHead())
+// console.log(myList.tail())
+console.log(myList.at(0)) //10
+console.log(myList.at(2)) //30
