@@ -94,11 +94,24 @@ class LinkedList {
             while (current !== null) {
                 if (current.data === value) return true
                 else {
-                    current = current.next;
+                    current = current.next
                 }  
             }
             return false
         }
+    }
+
+    find(value) { //returns the index of a node containing 'value', otherwise null
+        let current = this.head
+        let index = 0
+        while (current !== null) {
+            if (current.data === value) {
+                return index
+            } else 
+            current = current.next
+            index++
+        }
+        return null
     }
 }
 
@@ -119,5 +132,5 @@ myList.append(40);
 // console.log(myList);
 
 
-console.log(myList.contains(5)) //false
-console.log(myList.contains(10)) //true
+console.log(myList.find(40)); //3
+console.log(myList.find(5)) //null
