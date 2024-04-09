@@ -1,4 +1,3 @@
-import dropdown from "./dropdown"
 
 import "./style.css"
 
@@ -19,6 +18,7 @@ class LinkedList {
             let tmp = this.head;
             this.head = new Node(value, tmp);
         }
+        listVisualizer()
     }
 
     append(value) { //add node to the end of the list
@@ -31,6 +31,7 @@ class LinkedList {
             }
             current.next = new Node(value, null);
         }
+        listVisualizer()
     }
 
     size() { //return the size of the list
@@ -82,6 +83,7 @@ class LinkedList {
     pop() {//removes the last element from the list
         const secondToLast = this.at(this.size() - 2)
         secondToLast.next = null;
+        listVisualizer()
     }
 
     contains(value) { // returns true if 'value' is in the list, false otherwise
@@ -113,6 +115,19 @@ class LinkedList {
         }
         return null
     }
+
+    toString() { //returns the full list represented as a string
+        let current = this.head
+        let output = ''
+        
+        while (current !== null) {
+            output += (' ( ' + current.data + ' ) -> ')
+            current = current.next
+        } 
+        output += 'null'
+        return output
+    }
+    
 }
 
 class Node {
@@ -124,13 +139,27 @@ class Node {
 
 const myList = new LinkedList();
 // console.log(myList.isEmpty()); // Output: true
-myList.prepend(10);
-myList.append(20);
-myList.append(30);
-myList.append(40);
+myList.prepend(10)
+myList.append(20)
+myList.append(30)
+myList.append(40)
 // console.log(myList.isEmpty()); // Output: false
 // console.log(myList);
 
 
-console.log(myList.find(40)); //3
-console.log(myList.find(5)) //null
+// console.log(myList.find(40)); //3
+// console.log(myList.find(5)) //null
+
+console.log(myList.toString())
+
+
+
+//display list on DOM actively
+
+function listVisualizer () {
+    const output = myList.toString()
+    const domList = document.getElementById("mainList")
+    domList.innerHTML = ''
+    domList.textContent = output
+}
+

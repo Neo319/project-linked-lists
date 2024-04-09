@@ -25,5 +25,12 @@ module.exports = {
             template: 'src/index.html',
             filename: 'index.html',
         })
-    ]
+    ],
+    devServer: {
+        static: {
+            directory: path.resolve(__dirname, 'dist'), // Serve files from the 'dist' directory
+        },
+        port: 8080, // Specify port for Dev Server
+        open: true, // Automatically open the browser when Dev Server starts
+    },
 };
